@@ -1,0 +1,54 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: leaguelore-db
+    restart: unless-stopped
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: leaguelore
+      POSTGRES_PASSWORD: leaguelore_dev
+      POSTGRES_DB: leaguelore
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U leaguelore"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  postgres-test:
+    image: postgres:16-alpine
+    container_name: leaguelore-db-test
+    restart: unless-stopped
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_USER: leaguelore_test
+      POSTGRES_PASSWORD: leaguelore_test
+      POSTGRES_DB: leaguelore_test
+    tmpfs:
+      - /var/lib/postgresql/data # In-memory for speed
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U leaguelore_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    container_name: leaguelore-redis
+    restart: unless-stopped
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  postgres_data:
+  redis_data:

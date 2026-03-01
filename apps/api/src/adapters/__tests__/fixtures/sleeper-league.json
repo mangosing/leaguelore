@@ -1,0 +1,26 @@
+{
+  "league_id": "924039165809029120",
+  "name": "The Taco Bowl League",
+  "season": "2024",
+  "season_type": "regular",
+  "total_rosters": 12,
+  "scoring_settings": {
+    "rec": 1,
+    "pass_yd": 0.04,
+    "pass_td": 4,
+    "rush_yd": 0.1,
+    "rush_td": 6,
+    "rec_yd": 0.1,
+    "rec_td": 6,
+    "fum_lost": -2,
+    "pass_int": -1
+  },
+  "roster_positions": ["QB", "RB", "RB", "WR", "WR", "TE", "FLEX", "K", "DEF", "BN", "BN", "BN", "BN", "BN", "BN", "IR"],
+  "settings": {
+    "type": 0,
+    "draft_rounds": 15,
+    "playoff_week_start": 15,
+    "num_teams": 12
+  },
+  "previous_league_id": "784512345678901234"
+}

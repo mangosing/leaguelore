@@ -1,0 +1,34 @@
+[
+  {
+    "round": 1,
+    "pick_no": 1,
+    "roster_id": 3,
+    "player_id": "4034",
+    "picked_by": "user_001",
+    "metadata": {}
+  },
+  {
+    "round": 1,
+    "pick_no": 2,
+    "roster_id": 7,
+    "player_id": "6770",
+    "picked_by": "user_002",
+    "metadata": {}
+  },
+  {
+    "round": 1,
+    "pick_no": 3,
+    "roster_id": 1,
+    "player_id": "4981",
+    "picked_by": "user_003",
+    "metadata": {}
+  },
+  {
+    "round": 1,
+    "pick_no": 4,
+    "roster_id": 10,
+    "player_id": "5849",
+    "picked_by": "user_004",
+    "metadata": { "amount": "62" }
+  }
+]
