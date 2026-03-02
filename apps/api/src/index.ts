@@ -1,6 +1,9 @@
+import { clerkMiddleware } from '@clerk/express';
 import { app } from './app';
-import { env } from './config/env';
 import { prisma } from './config/db';
+import { env } from './config/env';
+
+app.use(clerkMiddleware());
 
 async function main() {
   // Verify database connection

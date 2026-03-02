@@ -1,5 +1,6 @@
-import express from 'express';
+import { clerkMiddleware } from '@clerk/express';
 import cors from 'cors';
+import express, { type Express } from 'express';
 import helmet from 'helmet';
 import morgan from 'morgan';
 import { env } from './config/env';
@@ -7,7 +8,7 @@ import { errorHandler } from './middleware/errorHandler';
 import { rateLimiter } from './middleware/rateLimiter';
 import { router } from './routes';
 
-const app = express();
+const app: Express = express();
 
 // ---------------------------------------------------------------------------
 // Global Middleware
@@ -21,6 +22,7 @@ app.use(
 );
 app.use(morgan(env.NODE_ENV === 'production' ? 'combined' : 'dev'));
 app.use(express.json({ limit: '10mb' }));
+app.use(clerkMiddleware());
 app.use(rateLimiter);
 
 // ---------------------------------------------------------------------------
