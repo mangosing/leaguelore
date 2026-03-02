@@ -1,8 +1,9 @@
+import type { Router as RouterType } from 'express';
 import { Router } from 'express';
-import { requireAuth } from '../middleware/auth';
 import type { AuthenticatedRequest } from '../middleware/auth';
+import { requireAuth } from '../middleware/auth';
 
-export const leagueRoutes = Router();
+export const leagueRoutes: RouterType = Router();
 
 // All league routes require auth
 leagueRoutes.use(requireAuth);

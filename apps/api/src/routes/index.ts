@@ -1,14 +1,17 @@
+import type { Router as RouterType } from 'express';
 import { Router } from 'express';
+import { analyticsRoutes } from './analytics.routes';
+import { duesRoutes } from './dues.routes';
 import { leagueRoutes } from './leagues.routes';
 import { matchupRoutes } from './matchups.routes';
-import { analyticsRoutes } from './analytics.routes';
 import { recapRoutes } from './recaps.routes';
 import { rulesRoutes } from './rules.routes';
-import { duesRoutes } from './dues.routes';
 import { syncRoutes } from './sync.routes';
+import { webhookRoutes } from './webhook.routes';
 
-export const router = Router();
+export const router: RouterType = Router();
 
+router.use(webhookRoutes);
 router.use('/leagues', leagueRoutes);
 router.use('/leagues', matchupRoutes);
 router.use('/leagues', analyticsRoutes);
